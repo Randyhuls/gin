@@ -68,6 +68,9 @@ class Vector2D {
   public dot(v: Vector2D): number {
     return this.x * v.x + this.y * v.y
   }
+  public equals(v: Vector2D): boolean {
+    return this.x === v.x && this.y === v.y
+  }
 
   public floor() {
     return new Vector2D(Math.floor(this.x), Math.floor(this.y))
