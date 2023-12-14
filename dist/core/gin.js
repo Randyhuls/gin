@@ -10,7 +10,7 @@ const settings_manager_1 = require("./settings-manager");
 const { useState } = _1.StateManager;
 const [, setWaitBeforeStart] = process_1.Process.interrupted;
 _a = useState(false), exports.isBooting = _a[0], exports.setIsBooting = _a[1];
-const gin = (options, onReady) => {
+const gin = (options = {}, onReady) => {
     let ts = 0;
     (0, settings_manager_1.setSettings)(options);
     (0, exports.setIsBooting)(true);
