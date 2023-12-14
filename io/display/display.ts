@@ -68,15 +68,15 @@ class Display {
     const { width, height, position: { x, y }, currentAnimation, sprite, currentFrame, spritesheet } = object
 
     this.shouldRenderCollision(object)
-    if (currentAnimation) {
-      const { frames, index: frameIndex } = currentAnimation
-      const sx: number = frames.map(({ width }) => width).reduce((a: number, b: number, index: number) => (index + 1) > currentFrame ? a + b : a)
+    //if (currentAnimation) {
+      //const { frames, index: frameIndex } = currentAnimation
+      //const sx: number = frames.map(({ width }) => width).reduce((a: number, b: number, index: number) => (index + 1) > currentFrame ? a + b : a)
       // ??? --> const sy: number = frames.findIndex((_: SpriteAnimationFrame, i: number) => i === frameIndex) * frames.map(({ height }) => height).reduce((a: number, b: number, index: number) => (index + 1) > currentFrame ? a + b : a)
       // drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-     ctx.drawImage(sprite as HTMLImageElement, sx)
-    } else {
+     //ctx.drawImage(sprite as HTMLImageElement, sx)
+    //} else {
       ctx.drawImage(sprite as HTMLImageElement, x, y, width, height)
-    }
+    //}
   }
 
   public shouldRenderCollision(object: GameObject, color: string = 'lightblue') {
