@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,11 +7,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Spritesheet = void 0;
-const asset_manager_1 = require("./asset-manager");
-const animation_1 = require("./animation");
-const utils_1 = require("./utils");
+import { AssetManager } from './asset-manager';
+import { Animation } from './animation';
+import { importFile } from './utils';
 class Spritesheet {
     constructor(props) {
         this._animations = {};
@@ -30,11 +27,11 @@ class Spritesheet {
     }
     static fromRawSpritesheet(path) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { assetId, animations } = yield (0, utils_1.importFile)(path);
+            const { assetId, animations } = yield importFile(path);
             const spritesheet = new Spritesheet();
             spritesheet._id = assetId;
             spritesheet._animations = animations;
-            spritesheet.sprite = asset_manager_1.AssetManager.manager.getImageById(assetId);
+            spritesheet.sprite = AssetManager.manager.getImageById(assetId);
             return spritesheet;
         });
     }
@@ -42,7 +39,7 @@ class Spritesheet {
         const rawAnimation = this.animations[id];
         if (!rawAnimation)
             throw new Error(`No animation found with id: ${id}`);
-        return new animation_1.Animation({ assetId: this.id, id, fps: rawAnimation.fps, frames: rawAnimation.frames });
+        return new Animation({ assetId: this.id, id, fps: rawAnimation.fps, frames: rawAnimation.frames });
     }
     getAnimationFramesById(id) {
         var _a;
@@ -54,5 +51,5 @@ class Spritesheet {
     drawAnimationById(id) {
     }
 }
-exports.Spritesheet = Spritesheet;
+export { Spritesheet };
 //# sourceMappingURL=spritesheet.js.map

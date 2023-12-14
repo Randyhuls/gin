@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.StateManager = void 0;
 class StateManager {
     static useState(defaultValue) {
         let state = defaultValue || null;
@@ -10,5 +7,5 @@ class StateManager {
         ];
     }
 }
-exports.StateManager = StateManager;
+export { StateManager };
 //# sourceMappingURL=state-manager.js.map

@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.GameState = void 0;
 class GameState {
     constructor(props) {
         this.props = props || {};
@@ -12,5 +9,5 @@ class GameState {
         return [getState, setState];
     }
 }
-exports.GameState = GameState;
+export { GameState };
 //# sourceMappingURL=game-state.js.map

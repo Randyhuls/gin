@@ -1,16 +1,13 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.CollisionDetection = void 0;
-const settings_manager_1 = require("./settings-manager");
-const types_1 = require("./types");
-const { collisionSettings: { BROAD_SCAN_RANGE } } = settings_manager_1.settings;
+import { settings } from './settings-manager';
+import { CollisionType } from './types';
+const { collisionSettings: { BROAD_SCAN_RANGE } } = settings;
 class CollisionDetection {
     static isColliding(a, b) {
         const { collisionType: cta } = a;
         const { collisionType: ctb } = b;
-        if (cta === types_1.CollisionType.RECTANGULAR && cta === ctb)
+        if (cta === CollisionType.RECTANGULAR && cta === ctb)
             return this.isCollidingRect(a, b);
-        if (cta === types_1.CollisionType.CIRCULAR && cta === ctb)
+        if (cta === CollisionType.CIRCULAR && cta === ctb)
             return this.isCollidingCircle(a, b);
         if (cta !== ctb)
             return this.isCollidingCircleWithRect(a, b);
@@ -40,8 +37,8 @@ class CollisionDetection {
         return squareDistance <= ((radiusA + radiusB) * (radiusA + radiusB));
     }
     static isCollidingCircleWithRect(a, b) {
-        const rect = a.collisionType === types_1.CollisionType.RECTANGULAR ? a : b;
-        const circle = a.collisionType === types_1.CollisionType.CIRCULAR ? a : b;
+        const rect = a.collisionType === CollisionType.RECTANGULAR ? a : b;
+        const circle = a.collisionType === CollisionType.CIRCULAR ? a : b;
         const { collisionBox: { width: rWidth, height: rHeight, position: crp }, position: rp } = rect;
         const { collisionBox: { width: cWidth, height: cHeight, position: ccp }, position: cp } = circle;
         const cPosX = ccp.x + cp.x + (cWidth * 0.5);
@@ -67,5 +64,5 @@ class CollisionDetection {
         return a.position.distanceTo(b.position) <= BROAD_SCAN_RANGE;
     }
 }
-exports.CollisionDetection = CollisionDetection;
+export { CollisionDetection };
 //# sourceMappingURL=collision-detection.js.map

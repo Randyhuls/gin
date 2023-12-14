@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Animation = void 0;
 class Animation {
     constructor(props) {
         this.assetId = '';
@@ -29,5 +26,5 @@ class Animation {
         this.index = this.index < this.frames.length ? +1 : 0;
     }
 }
-exports.Animation = Animation;
+export { Animation };
 //# sourceMappingURL=animation.js.map

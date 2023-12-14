@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Display = void 0;
-const core_1 = require("../../core");
-const types_1 = require("../../core/types");
+import { Vector2D } from '../../core';
+import { CollisionType } from '../../core/types';
 class Display {
     get canvas() {
         return this._canvas;
@@ -31,7 +28,7 @@ class Display {
         return display;
     }
     getScreenSizeVector() {
-        return new core_1.Vector2D(this.canvas.width, this.canvas.height);
+        return new Vector2D(this.canvas.width, this.canvas.height);
     }
     clearDisplay() {
         const { canvas: { width, height }, ctx } = this;
@@ -61,10 +58,10 @@ class Display {
             ctx.setLineDash([5, 10]);
             ctx.beginPath();
             switch (collisionType) {
-                case types_1.CollisionType.CIRCULAR:
+                case CollisionType.CIRCULAR:
                     ctx.arc(x + cpos.x + width * 0.5, y + cpos.y + height * 0.5, radius, 0, 2 * Math.PI);
                     break;
-                case types_1.CollisionType.RECTANGULAR:
+                case CollisionType.RECTANGULAR:
                 default:
                     ctx.rect(x + cpos.x, y + cpos.y, width, height);
             }
@@ -81,5 +78,5 @@ class Display {
         ctx.fill();
     }
 }
-exports.Display = Display;
+export { Display };
 //# sourceMappingURL=display.js.map

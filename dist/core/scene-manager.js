@@ -1,11 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.SceneManager = void 0;
-const events_1 = require("../events/events");
-const display_1 = require("../io/display");
-const collision_detection_1 = require("./collision-detection");
-const process_1 = require("./process");
-class SceneManager extends process_1.Process {
+import { onCollisionEvent } from '../events/events';
+import { Display } from '../io/display';
+import { CollisionDetection } from './collision-detection';
+import { Process } from './process';
+class SceneManager extends Process {
     constructor() {
         super();
         this.queue = [];
@@ -35,7 +32,7 @@ class SceneManager extends process_1.Process {
         this.activeScene = this.queue[lastIndex];
     }
     renderScene() {
-        const display = display_1.Display.shared;
+        const display = Display.shared;
         const { objects } = this.activeScene;
         objects
             .sort(({ zIndex: zA }, { zIndex: zB }) => zA - zB)
@@ -43,10 +40,10 @@ class SceneManager extends process_1.Process {
             if (object.collision) {
                 const targets = objects.filter((target) => (target.collision &&
                     target.id !== object.id &&
-                    collision_detection_1.CollisionDetection.isInBroadRange(object, target) &&
-                    collision_detection_1.CollisionDetection.isColliding(object, target)));
+                    CollisionDetection.isInBroadRange(object, target) &&
+                    CollisionDetection.isColliding(object, target)));
                 if (targets.length > 0)
-                    dispatchEvent((0, events_1.onCollisionEvent)(object.id, targets));
+                    dispatchEvent(onCollisionEvent(object.id, targets));
             }
         });
         display.clearDisplay();
@@ -56,5 +53,5 @@ class SceneManager extends process_1.Process {
         this.renderScene();
     }
 }
-exports.SceneManager = SceneManager;
+export { SceneManager };
 //# sourceMappingURL=scene-manager.js.map

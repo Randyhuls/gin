@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AssetManager = void 0;
 class AssetManager {
     constructor() {
         this.assets = {
@@ -48,5 +45,5 @@ class AssetManager {
         return Promise.all(requests);
     }
 }
-exports.AssetManager = AssetManager;
+export { AssetManager };
 //# sourceMappingURL=asset-manager.js.map

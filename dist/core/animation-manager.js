@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AnimationManager = void 0;
 class AnimationManager {
     static get manager() {
         if (!this.manager)
@@ -10,5 +7,5 @@ class AnimationManager {
     getAnimationsBySpritesheetId(id) {
     }
 }
-exports.AnimationManager = AnimationManager;
+export { AnimationManager };
 //# sourceMappingURL=animation-manager.js.map

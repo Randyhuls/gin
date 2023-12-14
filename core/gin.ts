@@ -3,7 +3,6 @@ import { name, version } from '../package.json'
 import { StateManager } from '.'
 import { onUpdateEvent } from '../events'
 import { Process } from './process'
-import { SettingsType } from './types'
 import { setSettings } from './settings-manager'
 
 const { useState } = StateManager

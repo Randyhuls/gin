@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Vector2D = void 0;
-const utils_1 = require("./utils");
+import { roundTwoDecimal } from './utils';
 class Vector2D {
     constructor(x, y) {
         this.x = x;
@@ -78,7 +75,7 @@ class Vector2D {
         }
     }
     round() {
-        return new Vector2D((0, utils_1.roundTwoDecimal)(this.x), (0, utils_1.roundTwoDecimal)(this.y));
+        return new Vector2D(roundTwoDecimal(this.x), roundTwoDecimal(this.y));
     }
     rotated(degrees) {
         const sin = Math.sin(degrees);
@@ -109,5 +106,5 @@ class Vector2D {
         return new Vector2D(0, 0);
     }
 }
-exports.Vector2D = Vector2D;
+export { Vector2D };
 //# sourceMappingURL=vector2d.js.map

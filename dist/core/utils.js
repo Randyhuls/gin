@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,18 +7,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.importFile = exports.roundTwoDecimal = exports.isNullish = void 0;
-const isNullish = (value) => {
+export const isNullish = (value) => {
     const EPSILON = 0.0001;
     return Math.sign(value) === 1 ? value < EPSILON : !(value < -EPSILON);
 };
-exports.isNullish = isNullish;
-const roundTwoDecimal = (value) => {
+export const roundTwoDecimal = (value) => {
     return Math.round((value + Number.EPSILON) * 100) / 100;
 };
-exports.roundTwoDecimal = roundTwoDecimal;
-const importFile = (path) => __awaiter(void 0, void 0, void 0, function* () {
+export const importFile = (path) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const request = yield fetch(path, { method: 'GET' });
         if (!request.ok)
@@ -30,5 +25,4 @@ const importFile = (path) => __awaiter(void 0, void 0, void 0, function* () {
         return Promise.reject(err);
     }
 });
-exports.importFile = importFile;
 //# sourceMappingURL=utils.js.map

@@ -1,9 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Input = void 0;
-const core_1 = require("../../core");
-const schemas_1 = require("./schemas");
-const types_1 = require("./types");
+import { Vector2D } from '../../core';
+import { KeyboardSchema } from './schemas';
+import { InputType } from './types';
 class Input {
     constructor() {
         this.keys = {};
@@ -31,8 +28,8 @@ class Input {
     }
     set activeInput(type) {
         switch (type) {
-            case types_1.InputType.KEYBOARD: this._schema = schemas_1.KeyboardSchema;
-            default: this._schema = schemas_1.KeyboardSchema;
+            case InputType.KEYBOARD: this._schema = KeyboardSchema;
+            default: this._schema = KeyboardSchema;
         }
         this._activeInput = type;
     }
@@ -44,11 +41,11 @@ class Input {
         return !!this.keys[key];
     }
     getDirectionX() {
-        return this.isPressed(this.schema.LEFT) ? core_1.Vector2D.LEFT : this.isPressed(this.schema.RIGHT) ? core_1.Vector2D.RIGHT : core_1.Vector2D.ZERO;
+        return this.isPressed(this.schema.LEFT) ? Vector2D.LEFT : this.isPressed(this.schema.RIGHT) ? Vector2D.RIGHT : Vector2D.ZERO;
     }
     getDirectionY() {
-        return this.isPressed(this.schema.UP) ? core_1.Vector2D.UP : this.isPressed(this.schema.DOWN) ? core_1.Vector2D.DOWN : core_1.Vector2D.ZERO;
+        return this.isPressed(this.schema.UP) ? Vector2D.UP : this.isPressed(this.schema.DOWN) ? Vector2D.DOWN : Vector2D.ZERO;
     }
 }
-exports.Input = Input;
+export { Input };
 //# sourceMappingURL=input.js.map

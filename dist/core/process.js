@@ -1,15 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Process = void 0;
-const events_1 = require("../events/events");
-const _1 = require(".");
-const { useState } = _1.StateManager;
-class Process {
+import { EventType } from '../events/events';
+import { StateManager } from '.';
+const { useState } = StateManager;
+export class Process {
     constructor() {
         this.fps = 0;
         this.pc = 0;
         const [isInterrupted] = Process.interrupted;
-        addEventListener(events_1.EventType.UPDATE, (event) => {
+        addEventListener(EventType.UPDATE, (event) => {
             var _a;
             const { detail } = event;
             !isInterrupted() && (this.fps = (detail === null || detail === void 0 ? void 0 : detail.fps) || 0,
@@ -21,6 +18,5 @@ class Process {
         this.pc % (this.fps - fps) === 0 && onUpdate();
     }
 }
-exports.Process = Process;
 Process.interrupted = useState(false);
 //# sourceMappingURL=process.js.map
