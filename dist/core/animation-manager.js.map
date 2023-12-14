@@ -1,0 +1,1 @@
+{"version":3,"file":"animation-manager.js","sourceRoot":"/src/","sources":["core/animation-manager.ts"],"names":[],"mappings":";;;AAIA,MAAM,gBAAgB;IAIb,MAAM,KAAK,OAAO;QACvB,IAAI,CAAC,IAAI,CAAC,OAAO;YAAE,IAAI,CAAC,QAAQ,GAAG,IAAI,gBAAgB,EAAE,CAAA;QACzD,OAAO,IAAI,CAAC,QAAQ,CAAA;IACtB,CAAC;IAEM,4BAA4B,CAAC,EAAU;IAE9C,CAAC;CAGF;AAEQ,4CAAgB"}
