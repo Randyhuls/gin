@@ -20,7 +20,7 @@
 
     // Source Map
     "sourceMap": true, // enables the use of source maps for debuggers and error reporting etc
-    "sourceRoot": "/src", // Specify the location where a debugger should locate TypeScript files instead of relative source locations.
+    "sourceRoot": "/", // Specify the location where a debugger should locate TypeScript files instead of relative source locations.
     "declaration": true, // Generate .d.ts files
 
     // Strict Checks

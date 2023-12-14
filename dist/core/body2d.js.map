@@ -1,1 +1,1 @@
-{"version":3,"file":"body2d.js","sourceRoot":"/src/","sources":["core/body2d.ts"],"names":[],"mappings":";;;AAAA,+CAA2D;AAO3D,MAAe,MAAO,SAAQ,wBAAU;IACtC,YAAY,KAAkB;QAC5B,KAAK,CAAC,KAAK,CAAC,CAAA;IACd,CAAC;CAEF;AAEQ,wBAAM"}
+{"version":3,"file":"body2d.js","sourceRoot":"/","sources":["core/body2d.ts"],"names":[],"mappings":";;;AAAA,+CAA2D;AAO3D,MAAe,MAAO,SAAQ,wBAAU;IACtC,YAAY,KAAkB;QAC5B,KAAK,CAAC,KAAK,CAAC,CAAA;IACd,CAAC;CAEF;AAEQ,wBAAM"}

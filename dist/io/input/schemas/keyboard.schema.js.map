@@ -1,1 +1,1 @@
-{"version":3,"file":"keyboard.schema.js","sourceRoot":"/src/","sources":["io/input/schemas/keyboard.schema.ts"],"names":[],"mappings":";;;AAAA,IAAY,cAKX;AALD,WAAY,cAAc;IACxB,gCAAc,CAAA;IACd,oCAAkB,CAAA;IAClB,oCAAkB,CAAA;IAClB,sCAAmB,CAAA;AACrB,CAAC,EALW,cAAc,8BAAd,cAAc,QAKzB"}
+{"version":3,"file":"keyboard.schema.js","sourceRoot":"/","sources":["io/input/schemas/keyboard.schema.ts"],"names":[],"mappings":";;;AAAA,IAAY,cAKX;AALD,WAAY,cAAc;IACxB,gCAAc,CAAA;IACd,oCAAkB,CAAA;IAClB,oCAAkB,CAAA;IAClB,sCAAmB,CAAA;AACrB,CAAC,EALW,cAAc,8BAAd,cAAc,QAKzB"}
