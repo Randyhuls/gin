@@ -1,15 +1,15 @@
 
-import { name, version } from './package.json'
-import { StateManager } from './core'
-import { onUpdateEvent } from './events'
-import { Process } from './core/process'
+import { name, version } from '../package.json'
+import { StateManager } from '.'
+import { onUpdateEvent } from '../events'
+import { Process } from './process'
 
 const { useState } = StateManager
 const [, setWaitBeforeStart] = Process.interrupted
 
 export const [isBooting, setIsBooting] = useState<boolean>(false)
 
-const boot = (onReady: () => void) => {
+const gin = (onReady: () => void) => {
   let ts: number = 0 // Timestamp in seconds
   
   setIsBooting(true)
@@ -40,4 +40,4 @@ const boot = (onReady: () => void) => {
   onReady()
 }
 
-export { boot as Gin }
+export { gin }
