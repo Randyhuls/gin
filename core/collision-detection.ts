@@ -1,8 +1,8 @@
 import { Body2D, GameObject } from '.'
+import { settings } from './settings-manager'
 import { CollisionType } from './types'
-import Settings from '../settings'
 
-const { BROAD_SCAN_RANGE } = Settings.collisionSettings
+const { collisionSettings: { BROAD_SCAN_RANGE } } = settings
 
 class CollisionDetection {
   public static isColliding(a: GameObject, b: GameObject): boolean {
@@ -78,7 +78,7 @@ class CollisionDetection {
   }
 
   public static isInBroadRange(a: GameObject, b: GameObject): boolean {
-    return a.position.distanceTo(b.position) <= (BROAD_SCAN_RANGE as number)
+    return a.position.distanceTo(b.position) <= BROAD_SCAN_RANGE
   }
 }
 
