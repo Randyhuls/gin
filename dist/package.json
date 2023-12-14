@@ -2,7 +2,7 @@
     "name": "gin",
     "version": "1.0.0",
     "description": "Gin, a small form game library written in TypeScript",
-    "main": "dist/core/index.js",
+    "main": "dist/index.js",
     "files": [
         "dist"
     ],
