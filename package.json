@@ -1,0 +1,17 @@
+{
+  "name": "gin",
+  "version": "1.0.0",
+  "description": "Gin Game Engine",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "R.C.B. Huls",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.6.2",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {}
+}
