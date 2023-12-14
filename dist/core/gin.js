@@ -3,7 +3,7 @@ import { StateManager } from '.';
 import { onUpdateEvent } from '../events';
 import { Process } from './process';
 import { setSettings } from './settings-manager';
-const { useState } = StateManager;
+const useState = StateManager.useState;
 const [, setWaitBeforeStart] = Process.interrupted;
 export const [isBooting, setIsBooting] = useState(false);
 const gin = (options = {}, onReady) => {
