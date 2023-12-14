@@ -1,8 +1,8 @@
 {
   "name": "gin",
   "version": "1.0.0",
-  "description": "Gin Game Engine",
-  "main": "index.js",
+  "description": "Gin, a small form game library written in TypeScript",
+  "main": "boot.ts",
   "scripts": {
     "test": ""
   },
