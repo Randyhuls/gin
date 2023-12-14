@@ -1,5 +1,5 @@
 import { Process } from './process'
-import { Vector2D, Animation, Spritesheet } from './'
+import { Vector2D, Animation, Spritesheet } from '.'
 import { EventType } from '../events/events'
 import { ICollisionEvent } from '../events/types'
 import { CollisionType, Origin } from './types'

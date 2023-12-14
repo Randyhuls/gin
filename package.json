@@ -2,13 +2,15 @@
   "name": "gin",
   "version": "1.0.0",
   "description": "Gin, a small form game library written in TypeScript",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "files": [
     "dist",
     "src"
   ],
   "scripts": {
-    "build": "rimraf dist && tsc --module commonjs"
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "tsc --module commonjs"
   },
   "author": "R.C.B. Huls",
   "license": "ISC",
