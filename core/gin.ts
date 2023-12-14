@@ -1,6 +1,6 @@
 
 import { name, version } from '../package.json'
-import { CollisionDetection, StateManager } from '.'
+import { StateManager } from '.'
 import { onUpdateEvent } from '../events'
 import { Process } from './process'
 import { SettingsType } from './types'
@@ -15,7 +15,7 @@ export const [isBooting, setIsBooting] = useState<boolean>(false)
  * @description Initiate the game loop
  * @param onReady Function that is called when Gin has booted
  */
-const gin = (options?: SettingsType, onReady?: () => void) => {
+const gin = (options = {}, onReady?: () => void) => {
   let ts: number = 0 // Timestamp in seconds
   
   setSettings(options)
