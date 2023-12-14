@@ -1,12 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CollisionDetection = void 0;
+const settings_manager_1 = require("./settings-manager");
 const types_1 = require("./types");
-const settings_1 = __importDefault(require("../settings"));
-const { BROAD_SCAN_RANGE } = settings_1.default.collisionSettings;
+const { collisionSettings: { BROAD_SCAN_RANGE } } = settings_manager_1.settings;
 class CollisionDetection {
     static isColliding(a, b) {
         const { collisionType: cta } = a;

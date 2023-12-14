@@ -18,4 +18,5 @@ __exportStar(require("./asset.type"), exports);
 __exportStar(require("./collision.type"), exports);
 __exportStar(require("./origin.type"), exports);
 __exportStar(require("./position.type"), exports);
+__exportStar(require("./settings.type"), exports);
 //# sourceMappingURL=index.js.map
