@@ -65,12 +65,12 @@ class Input {
   /**
    * @description onKeyUp hook
    */
-  protected onKeyUpPressed?(): void
+  public onKeyUpPressed?(): void
 
    /**
    * @description onKeyDown hook
    */
-  protected onKeyDownPressed?(): void
+   public onKeyDownPressed?(): void
 }
 
 export { Input }

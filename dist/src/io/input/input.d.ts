@@ -14,7 +14,7 @@ declare class Input {
     isPressed(key: string): boolean;
     getDirectionX(): Vector2D;
     getDirectionY(): Vector2D;
-    protected onKeyUpPressed?(): void;
-    protected onKeyDownPressed?(): void;
+    onKeyUpPressed?(): void;
+    onKeyDownPressed?(): void;
 }
 export { Input };
