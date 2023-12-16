@@ -18,13 +18,13 @@ class Input {
     addEventListener('keydown', (event: KeyboardEvent) => {
       const { code } = event
       this.keys[code] = true
-      this.onKeyDownPressed?.()
+      this.onKeyDownPressed?.bind(event).call()
     })
 
     addEventListener('keyup', (event: KeyboardEvent) => {
       const { code } = event
       this.keys[code] = false
-      this.onKeyUpPressed?.()
+      this.onKeyUpPressed?.bind(event).call()
     })
   }
 
