@@ -3,12 +3,11 @@
     "version": "1.0.0",
     "description": "Gin, a small form game library written in TypeScript",
     "main": "dist/index.js",
-    "files": [
-        "dist"
-    ],
+    "files": ["core", "dist", "events", "io"],
     "scripts": {
         "clean": "rimraf dist",
         "prebuild": "npm run clean",
+        "prepublish": "npm run build",
         "build": "tsc"
     },
     "paths": {
