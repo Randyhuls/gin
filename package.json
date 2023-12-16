@@ -10,11 +10,6 @@
     "prepublish": "npm run build",
     "build": "tsc"
   },
-  "paths": {
-    "core/*": ["dist/core/*"],
-    "io/*": ["dist/io/*"],
-    "events/*": ["dist/events/*"]
-  },
   "author": "R.C.B. Huls",
   "license": "ISC",
   "devDependencies": {
