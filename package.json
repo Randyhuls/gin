@@ -4,10 +4,7 @@
   "description": "Gin, a small form game library written in TypeScript",
   "main": "dist/index.js",
   "files": [
-    "dist",
-    "core",
-    "io",
-    "events"
+    "dist"
   ],
   "scripts": {
     "clean": "rimraf dist",
