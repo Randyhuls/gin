@@ -1,5 +1,5 @@
 
-import { name, version } from '../package.json'
+import { name, version } from '../../package.json'
 import { StateManager } from '.'
 import { onUpdateEvent } from '../events'
 import { Process } from './process'
