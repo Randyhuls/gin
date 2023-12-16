@@ -14,6 +14,11 @@
         "prebuild": "npm run clean",
         "build": "tsc"
     },
+    "paths": {
+        "core/*": ["dist/core/*"],
+        "io/*": ["dist/io/*"],
+        "events/*": ["dist/events/*"]
+    },
     "author": "R.C.B. Huls",
     "license": "ISC",
     "devDependencies": {
