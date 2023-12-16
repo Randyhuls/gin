@@ -5,7 +5,7 @@ import { onUpdateEvent } from '../events'
 import { Process } from './process'
 import { setSettings } from './settings-manager'
 
-const useState = StateManager.useState
+const { useState } = StateManager
 const [, setWaitBeforeStart] = Process.interrupted
 
 export const [isBooting, setIsBooting] = useState<boolean>(false)
