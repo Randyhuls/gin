@@ -1,6 +1,6 @@
 import { EventType } from '../events/events';
 import { StateManager } from './state-manager';
-const { useState } = StateManager;
+const useState = StateManager.useState;
 export class Process {
     constructor() {
         this.fps = 0;

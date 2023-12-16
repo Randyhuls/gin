@@ -2,7 +2,7 @@ import { EventType } from '../events/events'
 import { IUpdateEvent } from '../events/types'
 import { StateManager } from './state-manager'
 
-const { useState } = StateManager
+const useState = StateManager.useState
 
 export abstract class Process { 
   public static interrupted = useState<boolean>(false)
