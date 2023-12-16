@@ -5,7 +5,6 @@ declare class Input {
     private _activeInput;
     private _schema;
     private keys;
-    isRepeat: boolean;
     static get shared(): Input;
     listen(): void;
     get activeInput(): InputType;
@@ -15,5 +14,7 @@ declare class Input {
     isPressed(key: string): boolean;
     getDirectionX(): Vector2D;
     getDirectionY(): Vector2D;
+    protected onKeyUpPressed?(): void;
+    protected onKeyDownPressed?(): void;
 }
 export { Input };

@@ -4,7 +4,6 @@ import { InputType } from './types';
 class Input {
     constructor() {
         this.keys = {};
-        this.isRepeat = false;
     }
     static get shared() {
         if (!this._shared)
@@ -13,14 +12,16 @@ class Input {
     }
     listen() {
         addEventListener('keydown', (event) => {
-            const { code, repeat } = event;
-            this.isRepeat = repeat;
+            var _a;
+            const { code } = event;
             this.keys[code] = true;
+            (_a = this.onKeyDownPressed) === null || _a === void 0 ? void 0 : _a.call(this);
         });
         addEventListener('keyup', (event) => {
+            var _a;
             const { code } = event;
-            this.isRepeat = false;
             this.keys[code] = false;
+            (_a = this.onKeyUpPressed) === null || _a === void 0 ? void 0 : _a.call(this);
         });
     }
     get activeInput() {

@@ -9,8 +9,6 @@ class Input {
 
   private keys: { [key: string|number]: boolean } = {}
 
-  public isRepeat = false
-
   public static get shared() {
     if (!this._shared) this._shared = new Input()
     return this._shared
@@ -18,15 +16,15 @@ class Input {
 
   public listen() {
     addEventListener('keydown', (event: KeyboardEvent) => {
-      const { code, repeat } = event
-      this.isRepeat = repeat
+      const { code } = event
       this.keys[code] = true
+      this.onKeyDownPressed?.()
     })
 
     addEventListener('keyup', (event: KeyboardEvent) => {
       const { code } = event
-      this.isRepeat = false
       this.keys[code] = false
+      this.onKeyUpPressed?.()
     })
   }
 
@@ -63,6 +61,16 @@ class Input {
   public getDirectionY(): Vector2D {
     return this.isPressed(this.schema.UP) ? Vector2D.UP : this.isPressed(this.schema.DOWN) ? Vector2D.DOWN : Vector2D.ZERO
   }
+
+  /**
+   * @description onKeyUp hook
+   */
+  protected onKeyUpPressed?(): void
+
+   /**
+   * @description onKeyDown hook
+   */
+  protected onKeyDownPressed?(): void
 }
 
 export { Input }
