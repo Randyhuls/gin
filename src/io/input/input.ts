@@ -65,12 +65,12 @@ class Input {
   /**
    * @description onKeyUp hook
    */
-  public onKeyUpPressed?(): void
+  public onKeyUpPressed?(event: KeyboardEvent): void
 
    /**
    * @description onKeyDown hook
    */
-   public onKeyDownPressed?(): void
+   public onKeyDownPressed?(event: KeyboardEvent): void
 }
 
 export { Input }
