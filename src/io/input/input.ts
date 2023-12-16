@@ -9,6 +9,8 @@ class Input {
 
   private keys: { [key: string|number]: boolean } = {}
 
+  public isRepeat = false
+
   public static get shared() {
     if (!this._shared) this._shared = new Input()
     return this._shared
@@ -16,13 +18,15 @@ class Input {
 
   public listen() {
     addEventListener('keydown', (event: KeyboardEvent) => {
-      const { code } = event
+      const { code, repeat } = event
       this.keys[code] = true
+      this.isRepeat = repeat
     })
 
     addEventListener('keyup', (event: KeyboardEvent) => {
       const { code } = event
       this.keys[code] = false
+      this.isRepeat = false
     })
   }
 

@@ -10,19 +10,18 @@ export abstract class Process {
   private fps: number = 0
   private pc: number = 0
    
-   
   constructor() {
     const [isInterrupted] = Process.interrupted
 
-     // Listen for game loop updates
-     addEventListener(EventType.UPDATE, (event: CustomEventInit<IUpdateEvent>) => {
-      const { detail } = event
-      !isInterrupted() && (
-        this.fps = detail?.fps || 0,
-        this.pc++,
-        this.onUpdate?.bind(this, detail?.delta || 0, detail?.fps || 0).call()
-      )
-     })
+    // Listen for game loop updates
+    addEventListener(EventType.UPDATE, (event: CustomEventInit<IUpdateEvent>) => {
+    const { detail } = event
+    !isInterrupted() && (
+      this.fps = detail?.fps || 0,
+      this.pc++,
+      this.onUpdate?.bind(this, detail?.delta || 0, detail?.fps || 0).call()
+    )
+    })
   }
 
   /**
