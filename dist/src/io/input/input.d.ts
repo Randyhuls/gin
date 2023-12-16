@@ -4,7 +4,9 @@ declare class Input {
     private static _shared;
     private _activeInput;
     private _schema;
-    private keys;
+    keys: {
+        [key: string | number]: boolean;
+    };
     static get shared(): Input;
     listen(): void;
     get activeInput(): InputType;

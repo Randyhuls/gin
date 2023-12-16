@@ -7,7 +7,7 @@ class Input {
   private _activeInput: InputType
   private _schema: InputSchema
 
-  private keys: { [key: string|number]: boolean } = {}
+  public keys: { [key: string|number]: boolean } = {}
 
   public static get shared() {
     if (!this._shared) this._shared = new Input()
@@ -17,14 +17,14 @@ class Input {
   public listen() {
     addEventListener('keydown', (event: KeyboardEvent) => {
       const { code } = event
-      this.keys[code] = true
-      this.onKeyDownPressed?.bind(this, event).call()
+      if (!this.onKeyDownPressed) this.keys[code] = true
+      this.onKeyDownPressed?.bind(this, event)?.call()         
     })
 
     addEventListener('keyup', (event: KeyboardEvent) => {
       const { code } = event
-      this.keys[code] = false
-      this.onKeyUpPressed?.bind(this, event).call()
+      if (!this.onKeyUpPressed) this.keys[code] = false 
+      this.onKeyUpPressed?.bind(this, event)?.call()
     })
   }
 

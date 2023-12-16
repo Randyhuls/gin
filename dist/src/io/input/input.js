@@ -12,16 +12,18 @@ class Input {
     }
     listen() {
         addEventListener('keydown', (event) => {
-            var _a;
+            var _a, _b;
             const { code } = event;
-            this.keys[code] = true;
-            (_a = this.onKeyDownPressed) === null || _a === void 0 ? void 0 : _a.bind(this, event).call();
+            if (!this.onKeyDownPressed)
+                this.keys[code] = true;
+            (_b = (_a = this.onKeyDownPressed) === null || _a === void 0 ? void 0 : _a.bind(this, event)) === null || _b === void 0 ? void 0 : _b.call();
         });
         addEventListener('keyup', (event) => {
-            var _a;
+            var _a, _b;
             const { code } = event;
-            this.keys[code] = false;
-            (_a = this.onKeyUpPressed) === null || _a === void 0 ? void 0 : _a.bind(this, event).call();
+            if (!this.onKeyUpPressed)
+                this.keys[code] = false;
+            (_b = (_a = this.onKeyUpPressed) === null || _a === void 0 ? void 0 : _a.bind(this, event)) === null || _b === void 0 ? void 0 : _b.call();
         });
     }
     get activeInput() {
