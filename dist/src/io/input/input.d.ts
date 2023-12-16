@@ -5,6 +5,7 @@ declare class Input {
     private _activeInput;
     private _schema;
     private keys;
+    isRepeat: boolean;
     static get shared(): Input;
     listen(): void;
     get activeInput(): InputType;
