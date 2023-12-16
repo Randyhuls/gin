@@ -38,10 +38,5 @@
   "include": ["./**/*.ts", "./*.ts"],
   "exclude": [
     "node_modules/**/*"
-  ],
-  "paths": {
-    "core/*": ["dist/core/*"],
-    "io/*": ["dist/io/*"],
-    "events/*": ["dist/events/*"]
-  }
+  ]
 }

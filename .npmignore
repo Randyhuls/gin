@@ -1,4 +1,4 @@
 # Source folders
-core
-events
-io
+core/*
+events/*
+io/*
