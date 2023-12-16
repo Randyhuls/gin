@@ -15,13 +15,13 @@ class Input {
             var _a;
             const { code } = event;
             this.keys[code] = true;
-            (_a = this.onKeyDownPressed) === null || _a === void 0 ? void 0 : _a.bind(event).call();
+            (_a = this.onKeyDownPressed) === null || _a === void 0 ? void 0 : _a.bind(this, event).call();
         });
         addEventListener('keyup', (event) => {
             var _a;
             const { code } = event;
             this.keys[code] = false;
-            (_a = this.onKeyUpPressed) === null || _a === void 0 ? void 0 : _a.bind(event).call();
+            (_a = this.onKeyUpPressed) === null || _a === void 0 ? void 0 : _a.bind(this, event).call();
         });
     }
     get activeInput() {
