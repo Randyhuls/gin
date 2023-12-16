@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Gin, a small form game library written in TypeScript",
   "main": "dist/index.js",
-  "files": ["dist/*"],
+  "files": ["dist", "core", "events", "io"],
   "scripts": {
     "clean": "rimraf dist",
-    "prepare": "npm run build",
-    "build": "tsc"
+    "build": "tsc",
+    "postversion": "git push --follow-tags"
   },
   "author": "R.C.B. Huls",
   "license": "ISC",
