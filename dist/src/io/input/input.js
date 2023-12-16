@@ -14,13 +14,13 @@ class Input {
     listen() {
         addEventListener('keydown', (event) => {
             const { code, repeat } = event;
-            this.keys[code] = true;
             this.isRepeat = repeat;
+            this.keys[code] = true;
         });
         addEventListener('keyup', (event) => {
             const { code } = event;
-            this.keys[code] = false;
             this.isRepeat = false;
+            this.keys[code] = false;
         });
     }
     get activeInput() {

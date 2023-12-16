@@ -19,14 +19,14 @@ class Input {
   public listen() {
     addEventListener('keydown', (event: KeyboardEvent) => {
       const { code, repeat } = event
-      this.keys[code] = true
       this.isRepeat = repeat
+      this.keys[code] = true
     })
 
     addEventListener('keyup', (event: KeyboardEvent) => {
       const { code } = event
-      this.keys[code] = false
       this.isRepeat = false
+      this.keys[code] = false
     })
   }
 
