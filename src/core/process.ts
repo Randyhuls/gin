@@ -1,6 +1,6 @@
 import { EventType } from '../events/events'
 import { IUpdateEvent } from '../events/types'
-import { StateManager } from '.'
+import { StateManager } from './state-manager'
 
 const { useState } = StateManager
 

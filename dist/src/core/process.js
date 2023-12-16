@@ -1,5 +1,5 @@
 import { EventType } from '../events/events';
-import { StateManager } from '.';
+import { StateManager } from './state-manager';
 const { useState } = StateManager;
 export class Process {
     constructor() {
