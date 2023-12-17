@@ -5,11 +5,15 @@ import { GameObject } from './game-object'
 import { Process } from './process'
 import { Scene } from './scene'
 
-class SceneManager {
+class SceneManager extends Process {
   private static _shared: SceneManager
   
   private queue: Scene[] = []
   private activeScene: Scene
+
+  constructor() {
+    super()
+  }
 
   public static get shared(): SceneManager {
     if (!this._shared) this._shared = new SceneManager()
@@ -63,6 +67,10 @@ class SceneManager {
     // Render object on the screen; note, we do a second for loop rather than adding this call inside the above for loop
     // because it is important that all objects are updated before we call render
     objects.forEach((object: GameObject) => object.sprite ? display.renderImage(object) : display.render(object))
+  }
+
+  protected onUpdate(delta: number, fps: number): void {
+    this.renderScene()
   }
 }
 
