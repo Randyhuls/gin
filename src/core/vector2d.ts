@@ -110,6 +110,12 @@ class Vector2D {
     return new Vector2D(this.x * cos - this.y * sin, this.x * sin + this.y * cos)
   }
 
+  public set(x: number, y: number): Vector2D {
+    this.x = x
+    this.y = y
+    return this
+  }
+
   public subtract(v: Vector2D): Vector2D {
     this.x -= v.x
     this.y -= v.y

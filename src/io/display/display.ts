@@ -75,7 +75,7 @@ class Display {
       // drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
      //ctx.drawImage(sprite as HTMLImageElement, sx)
     //} else {
-      ctx.drawImage(sprite as HTMLImageElement, x, y, width, height)
+    ctx.drawImage(sprite as HTMLImageElement, x, y, width, height)
     //}
   }
 
