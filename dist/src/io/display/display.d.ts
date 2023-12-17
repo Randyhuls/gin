@@ -13,7 +13,7 @@ declare class Display {
     showCollisionBoxes: boolean;
     get canvas(): HTMLCanvasElement;
     static get shared(): Display;
-    static create(props?: DisplayProps): Display;
+    static create(props?: DisplayProps): Display | void;
     getScreenSizeVector(): Vector2D;
     clearDisplay(): void;
     renderText(text?: string, x?: number, y?: number, fontSize?: number, color?: string): void;

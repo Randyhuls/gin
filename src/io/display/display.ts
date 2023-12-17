@@ -27,9 +27,16 @@ class Display {
     return this._shared
   }
 
-  public static create(props?: DisplayProps): Display {
-    if (!props && !this._shared?.canvas) throw new Error('Display requires DisplayProps if it has not been instantiated before')
-    if (this._shared?.canvas) throw new Error('The Display has already been initiated')
+  public static create(props?: DisplayProps): Display | void {
+    if (!props && !this._shared?.canvas) {
+      console.warn('Display requires DisplayProps if it has not been instantiated before')
+      return
+    }
+    if (this._shared?.canvas) {
+      console.warn('The Display has already been initiated')
+      return
+    }
+    
     if (this._shared) return this._shared
 
     const display: Display = this._shared = new Display()    
