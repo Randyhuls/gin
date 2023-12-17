@@ -11,5 +11,6 @@ declare class Scene {
     addObjectToScene(object: GameObject, position?: Vector2D, zIndex?: number): void;
     get CENTER(): Vector2D;
     get BOTTOM_LEFT(): Vector2D;
+    onSceneChange?(): void;
 }
 export { Scene };

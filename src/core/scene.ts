@@ -1,5 +1,6 @@
 import { Display } from '../io/display'
 import { GameObject } from './game-object'
+import { SceneManager } from './scene-manager'
 import { Vector2D } from './vector2d'
 
 class Scene {
@@ -25,6 +26,9 @@ class Scene {
     if (zIndex) object.zIndex = zIndex
     object.position = position || this.CENTER
     this.objects.push(object)
+
+    // Call change hook
+    this.onSceneChange?.()
   }
 
   // Static methods
@@ -35,6 +39,8 @@ class Scene {
   get BOTTOM_LEFT(): Vector2D {
     return new Vector2D(0, this.height)
   }
+
+  public onSceneChange?(): void
 }
 
 export { Scene }

@@ -8,6 +8,5 @@ declare class SceneManager {
     next(): void;
     previous(): void;
     renderScene(): void;
-    onSceneChange?(): void;
 }
 export { SceneManager };

@@ -10,10 +10,12 @@ class Scene {
         this.sceneBodyPositionY = sceneBodyPositionY || 0;
     }
     addObjectToScene(object, position, zIndex) {
+        var _a;
         if (zIndex)
             object.zIndex = zIndex;
         object.position = position || this.CENTER;
         this.objects.push(object);
+        (_a = this.onSceneChange) === null || _a === void 0 ? void 0 : _a.call(this);
     }
     get CENTER() {
         return new Vector2D(this.width * 0.5, this.height * 0.5);
