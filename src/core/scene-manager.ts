@@ -63,7 +63,12 @@ class SceneManager {
     // Render object on the screen; note, we do a second for loop rather than adding this call inside the above for loop
     // because it is important that all objects are updated before we call render
     objects.forEach((object: GameObject) => object.sprite ? display.renderImage(object) : display.render(object))
+
+    // Call change hook
+    this.onSceneChange?.()
   }
+
+  public onSceneChange?(): void
 }
 
 export { SceneManager }

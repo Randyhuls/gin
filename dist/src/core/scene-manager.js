@@ -30,6 +30,7 @@ class SceneManager {
         this.activeScene = this.queue[lastIndex];
     }
     renderScene() {
+        var _a;
         const display = Display.shared;
         const { objects } = this.activeScene;
         objects
@@ -46,6 +47,7 @@ class SceneManager {
         });
         display.clearDisplay();
         objects.forEach((object) => object.sprite ? display.renderImage(object) : display.render(object));
+        (_a = this.onSceneChange) === null || _a === void 0 ? void 0 : _a.call(this);
     }
 }
 export { SceneManager };
