@@ -1,5 +1,5 @@
 import { AssetType } from './types';
-declare class AssetManager {
+declare class AssetManager<T extends string> {
     private static _manager;
     assets: {
         images: {
@@ -9,12 +9,12 @@ declare class AssetManager {
             [key: string]: HTMLAudioElement;
         };
     };
-    static get manager(): AssetManager;
-    getImageById(id: string): HTMLImageElement | SVGElement | void;
-    getAudioById(id: string): HTMLAudioElement;
-    preload(id: string, asset: AssetType): Promise<AssetType>;
+    static get manager(): AssetManager<any>;
+    getImageById(id: T): HTMLImageElement | SVGElement | void;
+    getAudioById(id: T): HTMLAudioElement;
+    preload(id: T, asset: AssetType): Promise<AssetType>;
     preloadMultiple(assets: {
-        id: string;
+        id: T;
         asset: AssetType;
     }[]): Promise<AssetType[]>;
 }
