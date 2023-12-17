@@ -15,6 +15,7 @@ export type GameObjectProps = {
     height?: number;
     zIndex?: number;
     origin?: Vector2D;
+    position?: Vector2D;
     sprite?: HTMLImageElement;
     spritesheet?: Spritesheet;
 };
@@ -38,7 +39,7 @@ declare class GameObject extends Process {
     sprite: HTMLImageElement | null;
     spritesheet: Spritesheet | null;
     currentFrame: number;
-    constructor({ id, width, height, zIndex, collision, collisionType, collisionBox, origin, sprite, spritesheet, currentAnimation }: GameObjectProps);
+    constructor({ id, width, height, zIndex, collision, collisionType, collisionBox, origin, position, sprite, spritesheet, currentAnimation }: GameObjectProps);
     get currentAnimation(): Animation | null;
     set currentAnimation(value: Animation | null);
     get position(): Vector2D;
