@@ -1,10 +1,8 @@
 import { onCollisionEvent } from '../events/events';
 import { Display } from '../io/display';
 import { CollisionDetection } from './collision-detection';
-import { Process } from './process';
-class SceneManager extends Process {
+class SceneManager {
     constructor() {
-        super();
         this.queue = [];
     }
     static get shared() {
@@ -48,9 +46,6 @@ class SceneManager extends Process {
         });
         display.clearDisplay();
         objects.forEach((object) => object.sprite ? display.renderImage(object) : display.render(object));
-    }
-    onUpdate(delta, fps) {
-        this.renderScene();
     }
 }
 export { SceneManager };
