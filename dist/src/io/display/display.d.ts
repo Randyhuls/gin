@@ -12,8 +12,8 @@ declare class Display {
     protected ctx: CanvasRenderingContext2D;
     showCollisionBoxes: boolean;
     get canvas(): HTMLCanvasElement;
-    static get shared(): Display;
-    static create(props?: DisplayProps): Display | void;
+    static get shared(): Display | undefined;
+    static create(props?: DisplayProps): Display;
     getScreenSizeVector(): Vector2D;
     clearDisplay(): void;
     renderText(text?: string, x?: number, y?: number, fontSize?: number, color?: string): void;

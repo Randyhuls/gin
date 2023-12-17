@@ -5,20 +5,18 @@ class Display {
         return this._canvas;
     }
     static get shared() {
-        if (!this._shared)
-            throw new Error('The shared property cannot be accessed until .create() has been called');
+        if (!this._shared) {
+            console.warn('The shared property cannot be accessed until .create() has been called');
+            return;
+        }
         return this._shared;
     }
     static create(props) {
         var _a, _b;
-        if (!props && !((_a = this._shared) === null || _a === void 0 ? void 0 : _a.canvas)) {
-            console.warn('Display requires DisplayProps if it has not been instantiated before');
-            return;
-        }
-        if ((_b = this._shared) === null || _b === void 0 ? void 0 : _b.canvas) {
-            console.warn('The Display has already been initiated');
-            return;
-        }
+        if (!props && !((_a = this._shared) === null || _a === void 0 ? void 0 : _a.canvas))
+            throw new Error('Display requires DisplayProps if it has not been instantiated before');
+        if ((_b = this._shared) === null || _b === void 0 ? void 0 : _b.canvas)
+            throw new Error('The Display has already been initiated');
         if (this._shared)
             return this._shared;
         const display = this._shared = new Display();

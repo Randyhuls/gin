@@ -46,8 +46,8 @@ class SceneManager extends Process {
                     dispatchEvent(onCollisionEvent(object.id, targets));
             }
         });
-        display.clearDisplay();
-        objects.forEach((object) => object.sprite ? display.renderImage(object) : display.render(object));
+        display === null || display === void 0 ? void 0 : display.clearDisplay();
+        objects.forEach((object) => object.sprite ? display === null || display === void 0 ? void 0 : display.renderImage(object) : display === null || display === void 0 ? void 0 : display.render(object));
     }
     onUpdate(delta, fps) {
         this.renderScene();

@@ -62,11 +62,11 @@ class SceneManager extends Process {
     })
 
     // Clear the stage
-    display.clearDisplay()
+    display?.clearDisplay()
 
     // Render object on the screen; note, we do a second for loop rather than adding this call inside the above for loop
     // because it is important that all objects are updated before we call render
-    objects.forEach((object: GameObject) => object.sprite ? display.renderImage(object) : display.render(object))
+    objects.forEach((object: GameObject) => object.sprite ? display?.renderImage(object) : display?.render(object))
   }
 
   protected onUpdate(delta: number, fps: number): void {

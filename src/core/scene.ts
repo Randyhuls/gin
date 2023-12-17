@@ -4,7 +4,7 @@ import { SceneManager } from './scene-manager'
 import { Vector2D } from './vector2d'
 
 class Scene {
-  private canvas: HTMLCanvasElement = Display.shared.canvas
+  private canvas: HTMLCanvasElement | undefined = Display.shared?.canvas
 
   //Scroll width and height
   public width: number
@@ -17,8 +17,8 @@ class Scene {
 
   constructor(id: string, height?: number, width?: number, sceneBodyPositionY?: number) {
     this.id = id
-    this.height = height || this.canvas.height
-    this.width = width || this.canvas.width
+    this.height = height || this.canvas?.height || 0
+    this.width = width || this.canvas?.width || 0
     this.sceneBodyPositionY = sceneBodyPositionY || 0
   }
 
