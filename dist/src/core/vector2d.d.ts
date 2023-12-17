@@ -23,6 +23,7 @@ declare class Vector2D {
     normalize(): void;
     round(): Vector2D;
     rotated(degrees: number): Vector2D;
+    set(x: number, y: number): Vector2D;
     subtract(v: Vector2D): Vector2D;
     static get DOWN(): Vector2D;
     static get LEFT(): Vector2D;

@@ -82,6 +82,11 @@ class Vector2D {
         const cos = Math.cos(degrees);
         return new Vector2D(this.x * cos - this.y * sin, this.x * sin + this.y * cos);
     }
+    set(x, y) {
+        this.x = x;
+        this.y = y;
+        return this;
+    }
     subtract(v) {
         this.x -= v.x;
         this.y -= v.y;
