@@ -18,6 +18,7 @@ export type GameObjectProps = {
   height?: number
   zIndex?: number
   origin?: Vector2D // Object relative origin vector
+  position?: Vector2D
   sprite?: HTMLImageElement
   spritesheet?: Spritesheet
 }
@@ -52,25 +53,26 @@ class GameObject extends Process {
   public spritesheet: Spritesheet|null = null
   public currentFrame: number = 1
 
-  constructor({ id, width, height, zIndex, collision, collisionType, collisionBox, origin, sprite, spritesheet, currentAnimation }: GameObjectProps) {
+  constructor({ id, width, height, zIndex, collision, collisionType, collisionBox, origin, position, sprite, spritesheet, currentAnimation }: GameObjectProps) {
     super()
 
     this.id = id
-    this.width = width ?? this.width
-    this.height = height ?? this.height
-    this.zIndex = zIndex ?? this.zIndex
-    this.origin = origin ?? this.origin
-    this.sprite = sprite ?? this.sprite
-    this.spritesheet = spritesheet ?? this.spritesheet
-    this.currentAnimation = currentAnimation ?? this.currentAnimation
+    this.width = width || this.width
+    this.height = height || this.height
+    this.zIndex = zIndex || this.zIndex
+    this.origin = origin || this.origin
+    this.position = position || this.position
+    this.sprite = sprite || this.sprite
+    this.spritesheet = spritesheet || this.spritesheet
+    this.currentAnimation = currentAnimation || this.currentAnimation
     
-    this.collision = collision ?? this.collision
+    this.collision = collision || this.collision
     this.collisionType = collisionType === undefined ? this.collisionType : collisionType
 
     this.collisionBox = { 
-      width: collisionBox?.width ?? this._width, 
-      height: collisionBox?.height ?? this._height, 
-      position: collisionBox?.position ?? this._collisionBox.position
+      width: collisionBox?.width || this._width, 
+      height: collisionBox?.height || this._height, 
+      position: collisionBox?.position || this._collisionBox.position
     }
 
     // Listen for collision event
