@@ -13,6 +13,8 @@ export abstract class Process {
   constructor() {
     const [isInterrupted] = Process.interrupted
 
+    this.onLoad?.()
+
     // Listen for game loop updates
     addEventListener(EventType.UPDATE, (event: CustomEventInit<IUpdateEvent>) => {
     const { detail } = event
@@ -39,4 +41,9 @@ export abstract class Process {
      * @param fps Frames per second
      */
     protected onUpdate?(delta: number, fps: number): void
+  
+    /**
+     * @description Only fires once at load ready
+     */
+    protected onLoad?(): void
 }

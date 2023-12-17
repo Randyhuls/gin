@@ -5,4 +5,5 @@ export declare abstract class Process {
     constructor();
     protected throttle(fps: number, onUpdate: () => void): void;
     protected onUpdate?(delta: number, fps: number): void;
+    protected onLoad?(): void;
 }

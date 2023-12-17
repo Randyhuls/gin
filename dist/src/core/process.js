@@ -3,9 +3,11 @@ import { StateManager } from './state-manager';
 const { useState } = StateManager;
 export class Process {
     constructor() {
+        var _a;
         this.fps = 0;
         this.pc = 0;
         const [isInterrupted] = Process.interrupted;
+        (_a = this.onLoad) === null || _a === void 0 ? void 0 : _a.call(this);
         addEventListener(EventType.UPDATE, (event) => {
             var _a;
             const { detail } = event;
