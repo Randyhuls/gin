@@ -33,7 +33,7 @@ class SceneManager extends Process {
     }
     renderScene() {
         const display = Display.shared;
-        const { objects } = this.activeScene;
+        const { objects } = this.activeScene || { objects: [] };
         objects
             .sort(({ zIndex: zA }, { zIndex: zB }) => zA - zB)
             .forEach((object) => {

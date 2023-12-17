@@ -42,7 +42,7 @@ class SceneManager extends Process {
 
   public renderScene(): void {
     const display = Display.shared
-    const { objects } = this.activeScene
+    const { objects } = this.activeScene || { objects: []}
 
     objects
     // Sort objects by zIndex
