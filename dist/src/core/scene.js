@@ -14,7 +14,7 @@ class Scene {
         var _a;
         if (zIndex)
             object.zIndex = zIndex;
-        object.position = position || this.CENTER;
+        object.position = position || object.position || this.CENTER;
         this.objects.push(object);
         (_a = this.onSceneChange) === null || _a === void 0 ? void 0 : _a.call(this);
     }
