@@ -34,11 +34,12 @@ class SceneManager extends Process {
     renderScene() {
         const display = Display.shared;
         const { objects } = this.activeScene || { objects: [] };
-        objects
+        const objectsArr = Object.values(objects);
+        objectsArr
             .sort(({ zIndex: zA }, { zIndex: zB }) => zA - zB)
             .forEach((object) => {
             if (object.collision) {
-                const targets = objects.filter((target) => (target.collision &&
+                const targets = objectsArr.filter((target) => (target.collision &&
                     target.id !== object.id &&
                     CollisionDetection.isInBroadRange(object, target) &&
                     CollisionDetection.isColliding(object, target)));
@@ -47,7 +48,7 @@ class SceneManager extends Process {
             }
         });
         display === null || display === void 0 ? void 0 : display.clearDisplay();
-        objects.forEach((object) => object.sprite ? display === null || display === void 0 ? void 0 : display.renderImage(object) : display === null || display === void 0 ? void 0 : display.render(object));
+        objectsArr.forEach((object) => object.sprite ? display === null || display === void 0 ? void 0 : display.renderImage(object) : display === null || display === void 0 ? void 0 : display.render(object));
     }
     onUpdate(delta, fps) {
         this.renderScene();

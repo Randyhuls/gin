@@ -13,7 +13,7 @@ class Scene {
   public id: string // Unique identifier
   public sceneBodyPositionY: number // The scene's defauly Y position for the player, enemies and other bodies
 
-  public objects: GameObject[] = []
+  public objects: { [key: string]: GameObject } = {}
 
   constructor(id: string, height?: number, width?: number, sceneBodyPositionY?: number) {
     this.id = id
@@ -25,10 +25,18 @@ class Scene {
   public addObjectToScene(object: GameObject, position?: Vector2D, zIndex?: number) {
     if (zIndex) object.zIndex = zIndex
     object.position = position || object.position || this.CENTER
-    this.objects.push(object)
+    this.objects[object.id] = object
 
     // Call change hook
     this.onSceneChange?.()
+  }
+
+  public getObjectById(id: string): GameObject | undefined {
+    return this.objects[id]
+  }
+
+  public setObjectById(id: string, object: GameObject): void {
+    this.objects[id] = object
   }
 
   // Static methods

@@ -43,15 +43,16 @@ class SceneManager extends Process {
   public renderScene(): void {
     const display = Display.shared
     const { objects } = this.activeScene || { objects: []}
+    const objectsArr = Object.values(objects)
 
-    objects
+    objectsArr
     // Sort objects by zIndex
     .sort(({ zIndex: zA }, { zIndex: zB }) => zA - zB) 
     // Perform actions for each object in the scene
     .forEach((object: GameObject) => {
       // Check if object is colliding with any other objects
       if (object.collision) {
-        const targets: GameObject[] = objects.filter((target: GameObject) => (
+        const targets: GameObject[] = objectsArr.filter((target: GameObject) => (
           target.collision && // Target's collision is active 
           target.id !== object.id && // Target is not the same as object
           CollisionDetection.isInBroadRange(object, target) && // Only allow targets that are in the range of object
@@ -66,7 +67,7 @@ class SceneManager extends Process {
 
     // Render object on the screen; note, we do a second for loop rather than adding this call inside the above for loop
     // because it is important that all objects are updated before we call render
-    objects.forEach((object: GameObject) => object.sprite ? display?.renderImage(object) : display?.render(object))
+    objectsArr.forEach((object: GameObject) => object.sprite ? display?.renderImage(object) : display?.render(object))
   }
 
   protected onUpdate(delta: number, fps: number): void {
