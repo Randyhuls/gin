@@ -1,9 +1,8 @@
 import { Vector2D } from '../../core'
-import { InputType, InputSchema } from './types'
+import { InputSchema } from './types'
 
 class Input {
   private static _shared: Input
-  private _activeInput: InputType
   private _schema: InputSchema
 
   public keys: { [key: string|number]: boolean } = {}
@@ -27,8 +26,12 @@ class Input {
     })
   }
 
-  get activeInput(): InputType {
-    return this._activeInput
+  public getSchema<T extends InputSchema>(): T {
+    return this._schema as T
+  }
+
+  public setSchema<T extends InputSchema>(schema: T): void {
+    this._schema = schema
   }
   public isPressed(key: string) {
     return !!this.keys[key]
@@ -40,14 +43,6 @@ class Input {
 
   public getDirectionY(): Vector2D {
     return this.isPressed(this._schema.UP) ? Vector2D.UP : this.isPressed(this._schema.DOWN) ? Vector2D.DOWN : Vector2D.ZERO
-  }
-
-  public getSchema<T extends InputSchema>(): T {
-    return this._schema as T
-  }
-
-  public setSchema<T extends InputSchema>(schema: T): void {
-    this._schema = schema
   }
 
   /**

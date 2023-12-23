@@ -24,8 +24,11 @@ class Input {
             (_b = (_a = this.onKeyUpPressed) === null || _a === void 0 ? void 0 : _a.bind(this, event)) === null || _b === void 0 ? void 0 : _b.call();
         });
     }
-    get activeInput() {
-        return this._activeInput;
+    getSchema() {
+        return this._schema;
+    }
+    setSchema(schema) {
+        this._schema = schema;
     }
     isPressed(key) {
         return !!this.keys[key];
@@ -35,12 +38,6 @@ class Input {
     }
     getDirectionY() {
         return this.isPressed(this._schema.UP) ? Vector2D.UP : this.isPressed(this._schema.DOWN) ? Vector2D.DOWN : Vector2D.ZERO;
-    }
-    getSchema() {
-        return this._schema;
-    }
-    setSchema(schema) {
-        this._schema = schema;
     }
 }
 export { Input };
