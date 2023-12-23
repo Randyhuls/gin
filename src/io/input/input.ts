@@ -30,8 +30,9 @@ class Input {
     return this._schema as T
   }
 
-  public setSchema<T extends InputSchema>(schema: T): void {
+  public setSchema<T extends InputSchema>(schema: T): Input {
     this._schema = schema
+    return this
   }
   public isPressed(key: string) {
     return !!this.keys[key]

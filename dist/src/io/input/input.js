@@ -29,6 +29,7 @@ class Input {
     }
     setSchema(schema) {
         this._schema = schema;
+        return this;
     }
     isPressed(key) {
         return !!this.keys[key];

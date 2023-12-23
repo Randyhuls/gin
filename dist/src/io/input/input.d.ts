@@ -9,7 +9,7 @@ declare class Input {
     static get shared(): Input;
     listen(): void;
     getSchema<T extends InputSchema>(): T;
-    setSchema<T extends InputSchema>(schema: T): void;
+    setSchema<T extends InputSchema>(schema: T): Input;
     isPressed(key: string): boolean;
     getDirectionX(): Vector2D;
     getDirectionY(): Vector2D;
