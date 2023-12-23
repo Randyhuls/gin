@@ -14,9 +14,7 @@ declare class Input {
     isPressed(key: string): boolean;
     getDirectionX(): Vector2D;
     getDirectionY(): Vector2D;
-    setSchema(schema: InputSchema & {
-        [key: string]: string;
-    }): void;
+    setSchema<T>(schema: T & InputSchema): void;
     onKeyUpPressed?(event: KeyboardEvent): void;
     onKeyDownPressed?(event: KeyboardEvent): void;
 }

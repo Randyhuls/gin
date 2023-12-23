@@ -47,7 +47,7 @@ class Input {
     return this.isPressed(this.schema.UP) ? Vector2D.UP : this.isPressed(this.schema.DOWN) ? Vector2D.DOWN : Vector2D.ZERO
   }
 
-  public setSchema(schema: InputSchema & { [key: string]: string }): void {
+  public setSchema<T>(schema: T & InputSchema): void {
     this._schema = schema
   }
 
