@@ -27,17 +27,17 @@ class Input {
     get activeInput() {
         return this._activeInput;
     }
-    get schema() {
-        return this._schema;
-    }
     isPressed(key) {
         return !!this.keys[key];
     }
     getDirectionX() {
-        return this.isPressed(this.schema.LEFT) ? Vector2D.LEFT : this.isPressed(this.schema.RIGHT) ? Vector2D.RIGHT : Vector2D.ZERO;
+        return this.isPressed(this._schema.LEFT) ? Vector2D.LEFT : this.isPressed(this._schema.RIGHT) ? Vector2D.RIGHT : Vector2D.ZERO;
     }
     getDirectionY() {
-        return this.isPressed(this.schema.UP) ? Vector2D.UP : this.isPressed(this.schema.DOWN) ? Vector2D.DOWN : Vector2D.ZERO;
+        return this.isPressed(this._schema.UP) ? Vector2D.UP : this.isPressed(this._schema.DOWN) ? Vector2D.DOWN : Vector2D.ZERO;
+    }
+    getSchema() {
+        return this._schema;
     }
     setSchema(schema) {
         this._schema = schema;

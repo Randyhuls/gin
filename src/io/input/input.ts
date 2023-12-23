@@ -30,24 +30,23 @@ class Input {
   get activeInput(): InputType {
     return this._activeInput
   }
-
-  get schema(): InputSchema {
-    return this._schema
-  }
-
   public isPressed(key: string) {
     return !!this.keys[key]
   }
 
   public getDirectionX(): Vector2D {
-    return this.isPressed(this.schema.LEFT) ? Vector2D.LEFT : this.isPressed(this.schema.RIGHT) ? Vector2D.RIGHT : Vector2D.ZERO
+    return this.isPressed(this._schema.LEFT) ? Vector2D.LEFT : this.isPressed(this._schema.RIGHT) ? Vector2D.RIGHT : Vector2D.ZERO
   }
 
   public getDirectionY(): Vector2D {
-    return this.isPressed(this.schema.UP) ? Vector2D.UP : this.isPressed(this.schema.DOWN) ? Vector2D.DOWN : Vector2D.ZERO
+    return this.isPressed(this._schema.UP) ? Vector2D.UP : this.isPressed(this._schema.DOWN) ? Vector2D.DOWN : Vector2D.ZERO
   }
 
-  public setSchema<T>(schema: T & InputSchema): void {
+  public getSchema<T extends InputSchema>(): T {
+    return this._schema as T
+  }
+
+  public setSchema<T extends InputSchema>(schema: T): void {
     this._schema = schema
   }
 

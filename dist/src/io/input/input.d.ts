@@ -10,11 +10,11 @@ declare class Input {
     static get shared(): Input;
     listen(): void;
     get activeInput(): InputType;
-    get schema(): InputSchema;
     isPressed(key: string): boolean;
     getDirectionX(): Vector2D;
     getDirectionY(): Vector2D;
-    setSchema<T>(schema: T & InputSchema): void;
+    getSchema<T extends InputSchema>(): T;
+    setSchema<T extends InputSchema>(schema: T): void;
     onKeyUpPressed?(event: KeyboardEvent): void;
     onKeyDownPressed?(event: KeyboardEvent): void;
 }
