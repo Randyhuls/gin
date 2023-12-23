@@ -24,7 +24,7 @@ class Scene {
 
   public addObjectToScene(object: GameObject, position?: Vector2D, zIndex?: number) {
     if (zIndex) object.zIndex = zIndex
-    object.position = position || this.CENTER
+    object.position = position || object.position || this.CENTER
     this.objects.push(object)
 
     // Call change hook
