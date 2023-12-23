@@ -22,7 +22,9 @@ class Scene {
         return this.objects[id];
     }
     setObjectById(id, object) {
+        var _a;
         this.objects[id] = object;
+        (_a = this.onSceneChange) === null || _a === void 0 ? void 0 : _a.call(this);
     }
     get CENTER() {
         return new Vector2D(this.width * 0.5, this.height * 0.5);

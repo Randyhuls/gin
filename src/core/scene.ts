@@ -37,6 +37,9 @@ class Scene {
 
   public setObjectById(id: string, object: GameObject): void {
     this.objects[id] = object
+
+    // Call change hook
+    this.onSceneChange?.()
   }
 
   // Static methods
