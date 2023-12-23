@@ -26,11 +26,11 @@ class Input {
     })
   }
 
-  public getSchema<T extends InputSchema>(): T {
-    return this._schema as T
+  public getSchema<T>(): T & InputSchema {
+    return this._schema as T & InputSchema
   }
 
-  public setSchema<T extends InputSchema>(schema: T): Input {
+  public setSchema<T>(schema: T & InputSchema): Input {
     this._schema = schema
     return this
   }
