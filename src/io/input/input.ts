@@ -1,5 +1,4 @@
 import { Vector2D } from '../../core'
-import { KeyboardSchema } from './schemas'
 import { InputType, InputSchema } from './types'
 
 class Input {
@@ -36,20 +35,6 @@ class Input {
     return this._schema
   }
 
-  set activeInput(type: InputType) {
-    switch(type) {
-      case InputType.KEYBOARD: this._schema = KeyboardSchema
-      default: this._schema = KeyboardSchema
-    }
-
-    this._activeInput = type
-  }
-
-  public setDefault(input: InputType): Input {
-    this.activeInput = input
-    return Input.shared
-  }
-
   public isPressed(key: string) {
     return !!this.keys[key]
   }
@@ -60,6 +45,10 @@ class Input {
 
   public getDirectionY(): Vector2D {
     return this.isPressed(this.schema.UP) ? Vector2D.UP : this.isPressed(this.schema.DOWN) ? Vector2D.DOWN : Vector2D.ZERO
+  }
+
+  public setSchema(schema: InputSchema & { [key: string]: string }): void {
+    this._schema = schema
   }
 
   /**
