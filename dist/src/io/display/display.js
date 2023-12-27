@@ -46,7 +46,8 @@ class Display {
         const { ctx } = this;
         const { width, height, position: { x, y }, currentAnimation, sprite, currentFrame, spritesheet } = object;
         this.shouldRenderCollision(object);
-        ctx.drawImage(sprite, x, y, width, height);
+        if (sprite)
+            ctx.drawImage(sprite, x, y, width, height);
     }
     shouldRenderCollision(object, color = 'lightblue') {
         if (this.showCollisionBoxes && object.collision) {
