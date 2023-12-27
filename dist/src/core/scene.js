@@ -26,6 +26,11 @@ class Scene {
         this.objects[id] = object;
         (_a = this.onSceneChange) === null || _a === void 0 ? void 0 : _a.call(this);
     }
+    destroyObjectById(id) {
+        var _a;
+        delete this.objects[id];
+        (_a = this.onSceneChange) === null || _a === void 0 ? void 0 : _a.call(this);
+    }
     get CENTER() {
         return new Vector2D(this.width * 0.5, this.height * 0.5);
     }

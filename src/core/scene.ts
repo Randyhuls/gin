@@ -42,6 +42,13 @@ class Scene {
     this.onSceneChange?.()
   }
 
+  public destroyObjectById(id: string): void {
+    delete this.objects[id]
+
+    // Call change hook
+    this.onSceneChange?.()
+  }
+
   // Static methods
   get CENTER(): Vector2D {
     return new Vector2D(this.width * 0.5, this.height * 0.5)

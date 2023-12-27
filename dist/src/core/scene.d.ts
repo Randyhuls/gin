@@ -13,6 +13,7 @@ declare class Scene {
     addObjectToScene(object: GameObject, position?: Vector2D, zIndex?: number): void;
     getObjectById(id: string): GameObject | undefined;
     setObjectById(id: string, object: GameObject): void;
+    destroyObjectById(id: string): void;
     get CENTER(): Vector2D;
     get BOTTOM_LEFT(): Vector2D;
     onSceneChange?(): void;
